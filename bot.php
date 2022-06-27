@@ -17,12 +17,12 @@ $channel_id = "-100xxxxxxxxxx";
 
 /////////////////////////
 
-function sendaction($chatId, $action){
-	bot('sendchataction',[
-	'chat_id'=>$chat_id,
-	'action'=>$action
-	]);
-	}
+function sendaction($chat_id, $action){
+    bot('sendchataction',[
+    'chat_id'=>$chat_id,
+    'action'=>$action
+    ]);
+    }
 
     //Extact match Commands
     if($message == "/start"){
@@ -49,7 +49,7 @@ function sendaction($chatId, $action){
       if($message == "/cryptorate" || $message == "/cryptorate@github_rbot"){
       
         send_message($chat_id,$message_id,"
-	 Use command to check current Crypto rates
+     Use command to check current Crypto rates
          \n/btcrate  Bitcoin rate
          \n/ethrate  Etherum rate
          \n/ltcrate  Litecoin rate
@@ -85,10 +85,10 @@ $bin = substr($message, 5);
 $bin = clean($bin);
 $bin = substr($bin, 0,6);
 if(empty ($bin)){
-    reply_to($chatId, $message_id,"[ALERT] <i>GIVE ME VALID BIN</i>");
+    reply_to($chat_id, $message_id,"[ALERT] <i>GIVE ME VALID BIN</i>");
     exit();
 }elseif(strlen($bin < 6)){
-    reply_to($chatId, $message_id,"[ALERT] <i>GIVE ME VALID BIN</i>");
+    reply_to($chat_id, $message_id,"[ALERT] <i>GIVE ME VALID BIN</i>");
         exit();
 }
 $ch = curl_init();
@@ -120,7 +120,7 @@ $result = curl_exec($ch);
     $roldex = trim(strip_tags(getStr($result, '<td>'.$bincap5.'</td><td>','</td>')));
 // $flag = getFlags($bincap2);
     if(strpos($result, 'No bins found!')) {
-    reply_to($chatId,$message_id, "<b>❌BIN BANNED</b>");
+    reply_to($chat_id,$message_id, "<b>❌BIN BANNED</b>");
     exit();
     }
 $binresult = urlencode("<b>══════ 『 ROLDEX 』══════
@@ -132,7 +132,7 @@ Bank: $roldex
 Country: $bincap2 {$flag($bincap2)}
 Type: $bincap5
 Checked By @$username </b>");
-    reply_to($chatId, $message_id,$binresult);
+    reply_to($chat_id, $message_id,$binresult);
         exit();
 }
 
@@ -258,19 +258,19 @@ if(strpos($message, "/weather") === 0){
    $curl = curl_init();
    curl_setopt_array($curl, [
 CURLOPT_URL => "http://api.openweathermap.org/data/2.5/weather?q=$location&appid=$weatherToken",
-	CURLOPT_RETURNTRANSFER => true,
-	CURLOPT_FOLLOWLOCATION => true,
-	CURLOPT_ENCODING => "",
-	CURLOPT_MAXREDIRS => 10,
-	CURLOPT_TIMEOUT => 50,
-	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-	CURLOPT_CUSTOMREQUEST => "GET",
-	CURLOPT_HTTPHEADER => [
-		"Accept: */*",
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_ENCODING => "",
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 50,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => "GET",
+    CURLOPT_HTTPHEADER => [
+        "Accept: */*",
         "Accept-Language: en-GB,en-US;q=0.9,en;q=0.8,hi;q=0.7",
         "Host: api.openweathermap.org",
         "sec-fetch-dest: empty",
-		"sec-fetch-site: same-site"
+        "sec-fetch-site: same-site"
   ],
 ]);
 
@@ -407,14 +407,14 @@ if(strpos($message, "/btcrate") === 0){
    $curl = curl_init();
    curl_setopt_array($curl, [
 CURLOPT_URL => "https://api.coinbase.com/v2/prices/BTC-USD/spot",
-	CURLOPT_RETURNTRANSFER => true,
-	CURLOPT_FOLLOWLOCATION => true,
-	CURLOPT_ENCODING => "",
-	CURLOPT_MAXREDIRS => 10,
-	CURLOPT_TIMEOUT => 50,
-	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-	CURLOPT_CUSTOMREQUEST => "GET",
-	CURLOPT_HTTPHEADER => [
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_ENCODING => "",
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 50,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => "GET",
+    CURLOPT_HTTPHEADER => [
         "accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
         "accept-encoding: gzip, deflate, br",
         "accept-language: en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7", 
@@ -435,14 +435,14 @@ if(strpos($message, "/ethrate") === 0){
    $curl = curl_init();
    curl_setopt_array($curl, [
 CURLOPT_URL => "https://api.coinbase.com/v2/prices/ETH-USD/spot",
-	CURLOPT_RETURNTRANSFER => true,
-	CURLOPT_FOLLOWLOCATION => true,
-	CURLOPT_ENCODING => "",
-	CURLOPT_MAXREDIRS => 10,
-	CURLOPT_TIMEOUT => 50,
-	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-	CURLOPT_CUSTOMREQUEST => "GET",
-	CURLOPT_HTTPHEADER => [
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_ENCODING => "",
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 50,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => "GET",
+    CURLOPT_HTTPHEADER => [
         "accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
         "accept-encoding: gzip, deflate, br",
         "accept-language: en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7", 
@@ -462,14 +462,14 @@ if(strpos($message, "/ltcrate") === 0){
    $curl = curl_init();
    curl_setopt_array($curl, [
 CURLOPT_URL => "https://api.coinbase.com/v2/prices/LTC-USD/spot",
-	CURLOPT_RETURNTRANSFER => true,
-	CURLOPT_FOLLOWLOCATION => true,
-	CURLOPT_ENCODING => "",
-	CURLOPT_MAXREDIRS => 10,
-	CURLOPT_TIMEOUT => 50,
-	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-	CURLOPT_CUSTOMREQUEST => "GET",
-	CURLOPT_HTTPHEADER => [
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_ENCODING => "",
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 50,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => "GET",
+    CURLOPT_HTTPHEADER => [
         "accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
         "accept-encoding: gzip, deflate, br",
         "accept-language: en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7", 
@@ -485,7 +485,7 @@ $LTCvalueinUSD = $currentLTCvalue["data"]["amount"];
 send_MDmessage($chat_id,$message_id, "***1 LTC \nUSD = $LTCvalueinUSD $ \nRate checked by @$username ***");
 }
 
-	
+    
 
 
 

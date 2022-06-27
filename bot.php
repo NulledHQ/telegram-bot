@@ -57,7 +57,7 @@ $channel_id = "-100xxxxxxxxxx";
         send_message($chat_id,$message_id, $help);
     }
    if($message == "/time"){
-        $time = date("h:i a", time());
+        $time = date("h:i a", time());https://github.com/NulledHQ/telegram-bot/blob/main/bot.php
         send_message($chat_id,$message_id, "$time IST");
     }
 
@@ -77,10 +77,10 @@ $bin = substr($message, 5);
 $bin = clean($bin);
 $bin = substr($bin, 0,6);
 if(empty ($bin)){
-    reply_to($chatId, $message_id,$keyboard,"[ALERT] <i>GIVE ME VALID BIN</i>");
+    reply_to($chatId, $message_id,"[ALERT] <i>GIVE ME VALID BIN</i>");
     exit();
 }elseif(strlen($bin < 6)){
-    reply_to($chatId, $message_id,$keyboard,"[ALERT] <i>GIVE ME VALID BIN</i>");
+    reply_to($chatId, $message_id,"[ALERT] <i>GIVE ME VALID BIN</i>");
         exit();
 }
 $ch = curl_init();
@@ -112,7 +112,7 @@ $result = curl_exec($ch);
     $roldex = trim(strip_tags(getStr($result, '<td>'.$bincap5.'</td><td>','</td>')));
 // $flag = getFlags($bincap2);
     if(strpos($result, 'No bins found!')) {
-    reply_to($chatId,$message_id,$keyboard, "<b>❌BIN BANNED</b>");
+    reply_to($chatId,$message_id, "<b>❌BIN BANNED</b>");
     exit();
     }
 $binresult = urlencode("<b>══════ 『 ROLDEX 』══════
@@ -124,7 +124,7 @@ Bank: $roldex
 Country: $bincap2 {$flag($bincap2)}
 Type: $bincap5
 Checked By @$username </b>");
-    reply_to($chatId, $message_id,$keyboard,$binresult);
+    reply_to($chatId, $message_id,$binresult);
         exit();
 }
 

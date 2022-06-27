@@ -14,7 +14,15 @@
  /// for broadcasting in Channel
 $channel_id = "-100xxxxxxxxxx";
 
+
 /////////////////////////
+
+function sendaction($chatId, $action){
+	bot('sendchataction',[
+	'chat_id'=>$chat_id,
+	'action'=>$action
+	]);
+	}
 
     //Extact match Commands
     if($message == "/start"){
@@ -71,7 +79,7 @@ if($message == "/dice"){
     }
 
 if(strpos($message, '!bin') === 0 or strpos($message, '/bin') === 0 or strpos($message, '.bin') === 0){
-//sendaction($chatId, typing);
+sendaction($chat_id, typing);
 $flag = 'getFlags';
 $bin = substr($message, 5);
 $bin = clean($bin);

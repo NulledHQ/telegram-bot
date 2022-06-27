@@ -71,7 +71,7 @@ if($message == "/dice"){
     }
 
 if(strpos($message, '!bin') === 0 or strpos($message, '/bin') === 0 or strpos($message, '.bin') === 0){
-sendaction($chatId, typing);
+//sendaction($chatId, typing);
 $flag = 'getFlags';
 $bin = substr($message, 5);
 $bin = clean($bin);

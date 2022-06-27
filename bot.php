@@ -57,7 +57,7 @@ $channel_id = "-100xxxxxxxxxx";
         send_message($chat_id,$message_id, $help);
     }
    if($message == "/time"){
-        $time = date("h:i a", time());https://github.com/NulledHQ/telegram-bot/blob/main/bot.php
+        $time = date("h:i a", time());
         send_message($chat_id,$message_id, "$time IST");
     }
 
